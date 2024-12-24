@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>馒头的圈</title>
+  <style>
+    /* 通用样式 */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #d1d476; /* 浅黄绿色背景 */
+      color: #2f4731; /* 墨绿色文字 */
+    }
+
+    header {
+      background-color: #799f49; /* 顶部明亮绿色 */
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 导航栏样式 */
+    .navbar {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #d1d476;
+    }
+
+    /* 搜索框样式 */
+    .search-box {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 5px 12px;
+      border-radius: 30px;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+      padding: 5px;
+      border-radius: 20px;
+      width: 150px;
+    }
+
+    .search-box button {
+      border: none;
+      background-color: #678256;
+      color: white;
+      padding: 5px 10px;
+      margin-left: 5px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .search-box button:hover {
+      background-color: #2f4731;
+    }
+
+    /* 头像区域 */
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+      border: 2px solid #d1d476;
+    }
+
+    /* 顶部标题 */
+    .site-title {
+      text-align: center;
+      padding: 20px 10px;
+      background-color: white;
+      color: #2f4731;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    /* 欢迎语 */
+    .welcome-text {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 18px;
+      color: #464527;
+    }
+
+    /* 轮播图区域 */
+    .carousel {
+      width: 100%; /* 全宽 */
+      max-width: 100%; /* 保证最大宽度不超过父容器 */
+      overflow: hidden; /* 隐藏超出的部分 */
+      position: relative;
+      margin: 20px auto;
+      border-radius: 10px; /* 可选圆角 */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    }
+
+    /* 轮播图片区域 */
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%; /* 图片区域全宽 */
+    }
+
+    /* 轮播图的图片 */
+    .carousel img {
+      width: 100%; /* 确保图片充满轮播容器 */
+      max-height: 500px; /* 限制最大高度（根据需要调整） */
+      object-fit: cover; /* 保持图片比例并裁剪填满容器 */
+    }
+
+    /* 控制按钮样式 */
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carousel-controls button {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .carousel-controls button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* 页脚 */
+    footer {
+      background-color: #2f4731;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: #d1d476;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    footer .social-icons img {
+      width: 30px;
+      height: 30px;
+      margin: 0 5px;
+    }
+
+    /* 响应式布局 */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+      }
+
+      .carousel {
+        width: 90%;
+      }
+
+      .search-box input {
+        width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <header>
+    <div class="logo">
+      <img src="image/头像.jpg" alt="头像"> <!-- 替换为头像图片路径 -->
+    </div>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index01.html">About Me</a></li>
+		  <li><a href="index02.html">Work</a></li>
+        <li><a href="index03.html">Subject</a></li>
+        <li><a href="index04.html">Sports data</a></li>
+        <li><a href="index05.html">Message Board</a></li>
+      </ul>
+    </nav>
+    <div class="search-box">
+      <input type="text" placeholder="搜索...">
+      <button>搜索</button>
+    </div>
+  </header>
+
+  <!-- 顶部标题 -->
+  <section class="site-title">
+    馒头的圈
+  </section>
+
+  <!-- 欢迎语 -->
+  <div class="welcome-text">
+    欢迎来到我的个人空间，探索我分享的所有内容。
+  </div>
+
+  <!-- 轮播图 -->
+  <div class="carousel">
+    <div class="carousel-inner">
+	  <img src="image/封面.JPG" width="813" height="1437" alt=""/> </div>
+	  <div class="carousel-inner">
+      
+     </div>
+    <div class="carousel-controls">
+      
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer>
+    <p>© 2024&nbsp; Welcome to my World !</p>
+    <div class="social-icons">
+    </div>
+  </footer>
+
+  <script>
+    // 轮播功能实现
+    let currentSlide = 0; // 当前显示的图片索引
+    const slides = document.querySelectorAll(".carousel-inner img");
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+      // 计算当前轮播的偏移量
+      const offset = -index * 100;
+      const carouselInner = document.querySelector(".carousel-inner");
+      carouselInner.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides; // 循环到第一张
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; // 循环到最后一张
+      showSlide(currentSlide);
+    }
+
+    // 初始化轮播
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>馒头的圈</title>
+  <style>
+    /* 通用样式 */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #d1d476; /* 浅黄绿色背景 */
+      color: #2f4731; /* 墨绿色文字 */
+    }
+
+    header {
+      background-color: #799f49; /* 顶部明亮绿色 */
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* 导航栏样式 */
+    .navbar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #d1d476;
+    }
+
+    /* 搜索框样式 */
+    .search-box {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 5px 12px;
+      border-radius: 30px;
+      margin-top: 10px;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+      padding: 5px;
+      border-radius: 20px;
+      width: 150px;
+    }
+
+    .search-box button {
+      border: none;
+      background-color: #678256;
+      color: white;
+      padding: 5px 10px;
+      margin-left: 5px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .search-box button:hover {
+      background-color: #2f4731;
+    }
+
+    /* 头像区域 */
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+      border: 2px solid #d1d476;
+    }
+
+    /* 顶部标题 */
+    .site-title {
+      text-align: center;
+      padding: 20px 10px;
+      background-color: white;
+      color: #2f4731;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    /* 主体内容 */
+    .content-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    /* 左侧个人信息 */
+    .personal-info {
+      flex: 1;
+      min-width: 280px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .personal-info h3 {
+      margin-bottom: 10px;
+      color: #2f4731;
+    }
+
+    .personal-info p {
+      margin: 5px 0;
+      color: #464527;
+    }
+
+    /* 右侧留言板 */
+    .message-board {
+      flex: 2;
+      min-width: 280px;
+      background-color: #fff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .message-board h3 {
+      margin-bottom: 20px;
+      color: #2f4731;
+      text-align: center;
+    }
+
+    .message-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .message-form input, .message-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .message-form textarea {
+      resize: none;
+    }
+
+    .message-form button {
+      align-self: flex-end;
+      background-color: #799f49;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .message-form button:hover {
+      background-color: #2f4731;
+    }
+
+    /* 响应式优化 */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+
+      .content-container {
+        flex-direction: column;
+      }
+    }
+	  
+	  /* 页脚 */
+    footer {
+      background-color: #2f4731;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: #d1d476;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <header>
+    <div class="logo">
+      <img src="image/头像.jpg" alt="头像">
+    </div>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index01.html">About Me</a></li>
+        <li><a href="index02.html">Work</a></li>
+        <li><a href="index03.html">Subject</a></li>
+        <li><a href="index04.html">Sports data</a></li>
+        <li><a href="index05.html">Message Board</a></li>
+      </ul>
+    </nav>
+    <div class="search-box">
+      <input type="text" placeholder="搜索...">
+      <button>搜索</button>
+    </div>
+  </header>
+
+  <!-- 顶部标题 -->
+  <section class="site-title">
+  留下一句话再离开吧！&nbsp; </section>
+
+  <!-- 主体内容 -->
+  <div class="content-container">
+    <!-- 左侧个人信息 -->
+    <div class="personal-info">
+      <h3>About Me</h3>
+      <p><strong>姓名：</strong>曹源</p>
+      <p><strong>性别：</strong>女</p>
+      <p><strong>出生日期：</strong>2003-08-21</p>
+      <p><strong>学校：</strong>西北大学</p>
+      <p><strong>学院：</strong>新闻传播学院</p>
+      <p><strong>班级：</strong>2022级网新班</p>
+    </div>
+
+    <!-- 右侧留言板 -->
+    <div class="message-board">
+      <form class="message-form">
+        <h3>留言板</h3>
+        <input type="text" placeholder="您的姓名" required>
+        <textarea rows="4" placeholder="请输入留言内容..." required></textarea>
+        <button type="submit">提交留言</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer>
+    <p>© 2024 Welcome to my World !</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>馒头的圈</title>
+  <script src="chart.js"></script>
+  <style>
+    /* 通用样式 */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #799f49;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #d1d476;
+    }
+.navbar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #d1d476;
+    }
+
+    /* 搜索框样式 */
+    .search-box {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 5px 12px;
+      border-radius: 30px;
+      margin-top: 10px;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+      padding: 5px;
+      border-radius: 20px;
+      width: 150px;
+    }
+
+    .search-box button {
+      border: none;
+      background-color: #678256;
+      color: white;
+      padding: 5px 10px;
+      margin-left: 5px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .search-box button:hover {
+      background-color: #2f4731;
+    }
+
+    .site-title {
+      text-align: center;
+      padding: 20px 10px;
+      background-color: white;
+      color: #2f4731;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .content-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content-container .left-content,
+    .content-container .right-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .left-content {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .right-content {
+      flex: 2;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #fafafa;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .chart-container {
+      position: relative;
+      margin: 20px 0;
+      width: 100%;
+      height: 400px;
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+
+    footer {
+      background-color: #2f4731;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: #d1d476;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <header>
+<div class="logo">
+      <img src="image/头像.jpg" alt="Logo">
+    </div>
+    <div>
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index01.html">About Me</a></li>
+      <li><a href="index02.html">Work</a></li>
+      <li><a href="index03.html">Subject</a></li>
+      <li><a href="index04.html">Sports data</a></li>
+      <li><a href="index05.html">Message Board</a></li>
+    </ul>
+  </nav>
+</div>
+
+    <div class="search-box">
+      <input type="text" placeholder="搜索...">
+      <button>搜索</button>
+    </div>
+  </header>
+
+  <!-- 顶部标题 -->
+  <section class="site-title">
+    运动数据分析
+  </section>
+
+  <!-- 主体内容 -->
+  <div class="content-container">
+    <!-- 左侧文字内容 -->
+    <div class="left-content">
+      <h2>个人信息</h2>
+      <p><strong>姓名：</strong>曹源</p>
+      <p><strong>性别：</strong>女</p>
+      <p><strong>出生日期：</strong>2003-08-21</p>
+      <p><strong>学校：</strong>西北大学</p>
+      <p><strong>学院：</strong>新闻传播学院</p>
+      <p><strong>班级：</strong>2022级网新班</p>
+
+      <h2>运动情况</h2>
+      <p><strong>步数：</strong>从 5000 到 10000 步不等，呈波动趋势。</p>
+      <p><strong>卡路里：</strong>消耗范围在 250 到 450 卡之间。</p>
+     
+    </div>
+
+    <!-- 右侧数据可视化内容 -->
+    <div class="right-content">
+      <div class="card">
+        <h3>步数趋势图</h3>
+        <canvas id="stepsChart"></canvas>
+      </div>
+      <div class="card">
+        <h3>卡路里燃烧图</h3>
+        <canvas id="caloriesChart"></canvas>
+      </div>
+      
+    </div>
+</div>
+
+<!-- 页脚 -->
+  <footer>
+    <p>© 2024 Welcome to my World !</p>
+</footer>
+
+  <script>
+  // 示例数据
+  const labels = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+  const stepsData = [5000, 8000, 7000, 10000, 9000, 7500, 8500];
+  const caloriesData = [250, 300, 280, 400, 350, 320, 370];
+
+  // 配置步数趋势图
+  const stepsCtx = document.getElementById('stepsChart').getContext('2d');
+  new Chart(stepsCtx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: '步数',
+        data: stepsData,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        tension: 0.4,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: '星期',
+          },
+        },
+        y: {
+          title: {
+            display: true,
+            text: '步数',
+          },
+        },
+      },
+    },
+  });
+
+  // 配置卡路里燃烧图
+  const caloriesCtx = document.getElementById('caloriesChart').getContext('2d');
+  new Chart(caloriesCtx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: '卡路里燃烧',
+        data: caloriesData,
+        borderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: '星期',
+          },
+        },
+        y: {
+          title: {
+            display: true,
+            text: '卡路里',
+          },
+        },
+      },
+    },
+  });
+</script>
+</body>
+</html>

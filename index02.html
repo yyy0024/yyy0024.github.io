@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>馒头的圈</title>
+  <style>
+    /* 通用样式 */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #d1d476; /* 浅黄绿色背景 */
+      color: #2f4731; /* 墨绿色文字 */
+    }
+
+    header {
+      background-color: #799f49; /* 顶部明亮绿色 */
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 导航栏样式 */
+    .navbar {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #d1d476;
+    }
+
+    /* 搜索框样式 */
+    .search-box {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 5px 12px;
+      border-radius: 30px;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+      padding: 5px;
+      border-radius: 20px;
+      width: 150px;
+    }
+
+    .search-box button {
+      border: none;
+      background-color: #678256;
+      color: white;
+      padding: 5px 10px;
+      margin-left: 5px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .search-box button:hover {
+      background-color: #2f4731;
+    }
+
+    /* 头像区域 */
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+      border: 2px solid #d1d476;
+    }
+
+    /* 顶部标题 */
+    .site-title {
+      text-align: center;
+      padding: 20px 10px;
+      background-color: white;
+      color: #2f4731;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    /* 图片轮播区域 */
+    .carousel {
+      position: relative;
+      width: 80%;
+      margin: 20px auto;
+      max-width: 1000px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-images img {
+      min-width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carousel-controls button {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 16px;
+    }
+
+    .carousel-controls button:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* 页脚 */
+    footer {
+      background-color: #2f4731;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: #d1d476;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    footer .social-icons img {
+      width: 30px;
+      height: 30px;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <header>
+    <div class="logo">
+      <img src="image/头像.jpg" alt="头像">
+    </div>
+    <nav class="navbar">
+      <ul class="nav-links">
+         <li><a href="index.html">Home</a></li>
+         <li><a href="index01.html">About Me</a></li>
+         <li><a href="index02.html">Work</a></li>
+         <li><a href="index03.html">Subject</a></li>
+         <li><a href="index04.html">Sports data</a></li>
+         <li><a href="index05.html">Message Board</a></li>
+      </ul>
+    </nav>
+    <div class="search-box">
+      <input type="text" placeholder="搜索...">
+      <button>搜索</button>
+    </div>
+  </header>
+
+  <!-- 顶部标题 -->
+  <section class="site-title">
+    馒头的绘稿
+  </section>
+
+  <!-- 图片轮播 -->
+  <div class="carousel">
+    <div class="carousel-images">
+      <img src="image/1.jpg" alt="图片1">
+      <img src="image/2.jpg" alt="图片2">
+      <img src="image/3.jpg" alt="图片3">
+      <img src="image/4.jpg" alt="图片4">
+      <img src="image/5.jpg" alt="图片5">
+    </div>
+    <div class="carousel-controls">
+      <button class="prev">&#8249;</button>
+      <button class="next">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer>
+    <p>© 2024&nbsp;Welcome to my World !</p>
+  </footer>
+
+  <script>
+    const carouselImages = document.querySelector('.carousel-images');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+
+    let currentIndex = 0;
+    const totalImages = document.querySelectorAll('.carousel-images img').length;
+
+    function updateCarousel() {
+      const width = document.querySelector('.carousel').clientWidth;
+      carouselImages.style.transform = `translateX(-${currentIndex * width}px)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalImages - 1;
+      updateCarousel();
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex < totalImages - 1) ? currentIndex + 1 : 0;
+      updateCarousel();
+    });
+
+    window.addEventListener('resize', updateCarousel);
+
+    updateCarousel();
+  </script>
+</body>
+</html>
